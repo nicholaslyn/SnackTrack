@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Meal Planner + Grocery List</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Plan a week of meals and auto-generate a grocery list. Local & offline." />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <h1>Meal Planner</h1>
+      <p>Plan your week and auto-build a grocery list — fast, clean, and local.</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- Add Recipe -->
+    <section class="card">
+      <h2>Add Recipe</h2>
+      <form id="recipeForm" autocomplete="off">
+        <div class="grid-2">
+          <label class="field">
+            <span>Recipe name</span>
+            <input id="rName" placeholder="e.g., Chicken Stir-Fry" required />
+          </label>
+          <label class="field">
+            <span>Ingredients (one per line)</span>
+            <textarea id="rIngs" placeholder="2 chicken breasts
+1 bell pepper
+soy sauce
+garlic
+rice" required></textarea>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="submit">Add Recipe</button>
+          <button type="button" class="secondary" id="seedBtn">Load Sample Recipes</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- Recipes -->
+    <section class="card">
+      <div class="row-title">
+        <h2>Recipes</h2>
+        <div class="row-actions">
+          <input id="recipeSearch" class="search" placeholder="Search recipes…" />
+          <button id="clearRecipes" class="danger ghost">Delete All Recipes</button>
+        </div>
+      </div>
+      <ul id="recipeList" class="list"></ul>
+    </section>
+
+    <!-- Planner -->
+    <section class="card">
+      <div class="row-title">
+        <h2>Weekly Planner</h2>
+        <div class="row-actions">
+          <select id="daySel"></select>
+          <select id="mealSel">
+            <option>Breakfast</option>
+            <option>Lunch</option>
+            <option>Dinner</option>
+          </select>
+          <select id="recipeSel"></select>
+          <button id="assignBtn">Assign to Day</button>
+          <button id="clearPlan" class="danger ghost">Clear Week</button>
+        </div>
+      </div>
+
+      <div class="table-wrap">
+        <table class="planner">
+          <thead>
+            <tr>
+              <th>Day</th>
+              <th>Breakfast</th>
+              <th>Lunch</th>
+              <th>Dinner</th>
+            </tr>
+          </thead>
+          <tbody id="planBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Grocery List -->
+    <section class="card">
+      <div class="row-title">
+        <h2>Grocery List</h2>
+        <div class="row-actions">
+          <button id="copyList" class="secondary">Copy</button>
+          <button id="downloadList" class="secondary">Download .txt</button>
+          <button id="exportData" class="ghost">Export JSON</button>
+        </div>
+      </div>
+      <ul id="groceryList" class="list bullets"></ul>
+      <p class="muted">Tip: items are de-duplicated. Repeats show a count (e.g., <strong>x3</strong>).</p>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="container">
+      <small>© <span id="year"></span> Meal Planner — fully client-side. Your data stays in your browser.</small>
+    </div>
+  </footer>
+
+  <script src="./app.js"></script>
+</body>
+</html>
