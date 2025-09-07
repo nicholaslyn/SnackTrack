@@ -1,7 +1,7 @@
 # SnackTrack
 # Meal Planner + Grocery List
 
-Plan a week of meals and auto-generate a grocery list. Everything is saved locally in your browser — no accounts, no backend.
+Plan a week of meals and auto-generate a grocery list. Everything is saved locally in your browser - no accounts, no backend.
 
 ## Features
 - Add recipes (name + ingredients, one per line)
